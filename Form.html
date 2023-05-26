@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>FORM</title>
+  <style>
+    div {
+      padding: 15px;
+    }
+
+    table,
+    td {
+      padding: 15px;
+      font-weight: 1000;
+
+    }
+
+    select,
+    input[type=date] {
+      font-weight: 700;
+
+
+
+
+    }
+
+    input,
+    select,
+    textarea {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h2>FORM</h2>
+
+    <form>
+      <table border="3" style="border-color: black;">
+        <tr>
+          <td><label for="name">Name:</label></td>
+          <td><input type="text" name="name" id="name" required pattern="[A-Za-z]+"
+              title="please enter your name in string" placeholder="Enter Your Name"></td>
+        </tr>
+        <tr>
+          <td><label for="mail">Email:</label></td>
+          <td><input type="email" name="mail" id="mail" placeholder="Enter Your Email" required></td>
+        </tr>
+        <tr>
+
+          <td><label for="gender">Gender:</label></td>
+          <td><input type="radio" name="radio1" id="radio1" required>Male
+            <input type="radio" name="radio1" id="radio2" required>Female
+          </td>
+        </tr>
+        <tr>
+
+          <td><label for="phone">Phone no:</label></td>
+          <td><input type="tel" name="phone" id="phone" required minlength="10" maxlength="10" pattern="[0-9]+"
+              placeholder="Enter Your Phone no">
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="dob">Date of Birth:</label></td>
+          <td><input type="date" name="dob" id="dob" required min="2002-08-21" max="2023-08-21">
+          </td>
+        </tr>
+        <tr>
+          <td><label for="age">Age:</label></td>
+          <td><input type="number" name="age" id="age" required min="1" max="100" placeholder="Age"></td>
+        </tr>
+        <tr>
+
+          <td><label for="language">Known Language:</label></td>
+          <td><input type="checkbox" name="checkbox1" id="checkbox1" checked required value="HTML">HTML</br>
+            <input type="checkbox" name="checkbox2" id="checkbox2" value="CSS">CSS</br>
+            <input type="checkbox" name="checkbox3" id="checkbox3" value="Python">Python</br>
+            <input type="checkbox" name="checkbox4" id="checkbox4" value="MySql">MySql</br>
+            <input type="checkbox" name="checkbox5" id="checkbox5" value="Android Studio">Android Studio</br>
+
+          </td>
+        </tr>
+        <tr>
+
+          <td><label for="dropdown">Current Position:</label></td>
+          <td><select>
+              <option name="Frontend Developer" value="Frontend" id="Frontend" name="Frontend">Frontend Developer
+              <option name="Backend Developer" value="Backend" id="Backend" name="Backend" selected>Backend Developer
+              <option name="Associate Software Engineer" value="Associate Software Engineer"
+                id="Associate Software Engineer" name="Associate Software Engineer ">Associate Software Engineer
+
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="address">Address:</label></td>
+          <td><textarea type="text" name="address" id="address" minlength="5" maxlength="200" required
+              placeholder="Enter Your Address" rows="4" cols="25"></textarea></td>
+        </tr>
+        <tr>
+
+          <td><label for="time">Time:</label></td>
+          <td><input type="time" name="time" id="time" required></td>
+        </tr>
+
+        <tr>
+          <td colspan="2"><input type="submit" name="submit" id="submit"
+              style="width:100%;height:30px;font-weight:700;"></td>
+        </tr>
+      </table>
+  </center>
+  </form>
+</body>
+
+</html>

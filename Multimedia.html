@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multimedia </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+        
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            background-color: rgb(76, 2, 45);
+            color: white;
+            padding: 10px;
+            
+            
+        }
+        
+        #naruto {
+            font-size: xx-large;
+        }
+
+        #home {
+            font-size: x-large;
+            padding-left: 800px;
+
+        }
+
+        #about {
+            font-size: x-large;
+            padding-left: 50px;
+
+        }
+
+        #watch {
+            font-size: x-large;
+            padding-left: 50px;
+
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        #naruto-main{
+            display: flex;
+            padding:30px;
+        }
+        #naruto-description{
+            padding:30px;
+            font-size: x-large;
+            position: absolute;
+            top:80px;
+            left:450px;
+        }
+        #para{
+            
+            padding-left:50px;
+            padding-right:50px;
+            padding-bottom:50px;
+            text-align: justify;
+    
+            
+        
+        }
+        #watch-animee{
+            padding-left:50px;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-right:50px;
+            background-color: rgb(76, 2, 45);
+            position:relative;
+            left:50px;
+            width:10%;
+            border-radius: 20px;;
+        }
+        section{
+            padding-left:50px;
+            padding-bottom: 10px;
+            
+        }
+        #footers{
+            display: flex;
+            
+            background-color: rgb(76, 2, 45);
+            padding: 15px;
+            font-size: x-large;
+
+        
+        }
+        #p1{
+            padding-left: 80px;;
+        }
+        #div1, #div2 {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        #divv{
+            display:flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="naruto">Naruto</div>
+        <div id="home"><a href="#">Home</a></div>
+        <div id="about"><a href="#watch-animee">About</a></div>
+        <div id="watch"><a href="#naruto-website">Website</a></div>
+
+    </header>
+    <br />
+    <main>
+        <section id="naruto-main">
+            <div id="naruto-image"><img src="Images/Naruto.jpg" width="400px" height="400px" alt="naruto" /></div>
+            <div id="naruto-description">
+            <div id="watch-animee"><a href="https://sanji.to/watch/naruto-shippuden-355?ep=7882" style="color:white;">Watch </a></div>
+                <p id="para">It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for
+                    intense training following events which fueled his desire to be stronger. Now Akatsuki, the
+                    mysterious organization of elite rogue ninja, is closing in on their grand plan which may threaten
+                    the safety of the entire shinobi world. Although Naruto is older and sinister events loom on the
+                    horizon, he has changed little in personality—still rambunctious and childish—though he is now far
+                    more confident and possesses an even greater determination to protect his friends and home. Come
+                    whatever may, Naruto will carry on with the fight for what is important to him, even at the expense
+                    of his own body, in the continuation of the saga about the boy who wishes to become Hokage.</p>
+            </div>
+        </section>
+        
+
+        
+        <section id="naruto-audio">
+            <h2>Naruto Audio</h2>
+            <audio controls>
+                <source src="Audio/naruto_voice.mp3" alt="" type="audio/mpeg">
+                Your Audio is not Supported in your Browser
+            </audio>
+        </section>
+        <section id="naruto-video">
+            <h2>Naruto Video</h2>
+            <video controls>
+                <source src="Video/naruto_video.mp4" alt="" width="500px" height="500px" type="video/mp4">
+                Your Video is not Supported in your Browser
+            </video>
+        </section>
+    
+        <section id="naruto-website">
+            <h2>Anime Website</h2>
+            <iframe src="https://sanji.to/naruto-shippuden-355" alt="" width="900px" height="500px" allowfullscreen></iframe>
+        </section>
+        <section id="youtube">
+            <h2>youtube</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZRhJT2nmvA4?autoplay=1&mute=1&playlist=ZRhJT2nmvA4&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </section>
+        
+        <section id="divv">
+            
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img src="Images/Naruto.jpg" width="200" height="200" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+              </div>
+              
+              <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </section>
+        
+    </main>
+    <footer id="footers">
+        
+        <a href="#footers" id="p1">Privacy Policy</a>
+        <a href="#footers" id="p1">Accessibility</a> 
+        <a href="#footers" id="p1">Sitemap</a>
+        <a href="#footers" id="p1">Support</a>
+        <a href="#footers" id="p1">@copyright 2023</a>
+
+
+
+
+    </ul>
+</footer>
+</body>
+
+</html>
