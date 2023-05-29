@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Table and form With CSS</title>
+        <style>
+            #mainform{
+                width:90%;
+            }
+            #form{
+                padding: 20px;
+                border: 2px solid black;
+                height:500px;
+                position:sticky;
+                top:0%;
+        
+            }
+            label{
+                font-size: large;
+            }
+            #name,#email,#age,#gender,#description,#department,#button{
+                padding: 10px;
+                font-size:medium;
+                font-weight: bold;
+
+                
+            }
+            main{
+                display:flex;
+                margin-top: -40px;
+            }
+           
+            td{
+                padding: 20px;
+                font-weight: bold;
+                text-align: justify;
+                font-size: medium;
+            }
+            header{
+                background-color: green;
+                color:white;
+                text-align: center;
+                margin-top:-20px;
+                
+            }
+            th{
+            
+                background-color: green;
+                color:white;
+                padding:10px;
+                font-weight: bold;
+                text-align: justify;
+                font-size: larger;
+            }
+            
+            input[type="submit"],[type="reset"]{
+                border: 2px solid black;
+                background-color: green;
+                color:white;
+                padding:10px;
+                width:30%;
+            }
+            input{
+                border:1px solid black;
+                border-radius: 20px;
+                
+                background-color: green;
+                color:white;
+            }
+            select{
+                background-color: green;
+                color:white;
+
+            }
+            ::placeholder{
+                color:white;
+            }
+            table,h1{
+                margin:30px;
+            }
+            textarea{
+                background-color: green;
+                color:white;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Form and Table with CSS</h1>
+        </header>
+        <main>
+            
+            <section id="mainform">
+                <h1>Enter your Details</h1>
+                <div id="form">
+                <form>
+                <div id="name">
+                    <label for="name">Name : </label>
+                    <input type="text" name="name" id="name" placeholder="Enter Your Name" required pattern="[A-Za-z]+" >
+                </div>
+                <div id="email">
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email" required >
+                </div>
+                <div id="age">
+                    <label for="age">Age : </label>
+                    <input type="number" name="age" id="age" placeholder="Enter Your Age" required pattern="[0-9]" >
+                </div>
+                <div id="gender"> 
+                    <label for="gender">Gender</label>
+                    <input type="radio" name="radio" id="radio1" required>Male
+                    <input type="radio" name="radio" id="radio2">Female
+                    <input type="radio" name="radio" id="radio3">Others
+                </div>
+                <div id="department">
+                    <label for="Department">Department : </label>
+                    <select >
+                        <option value="IT" selected>IT</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="CIVIL">CIVIL</option>
+                        <option value="MECH">MECH</option>
+                        <option value="ICE">ICE</option>
+                    </select>
+                </div>
+                <div id="description">
+                    <label for="description">Description : </label>
+                    <textarea name="description" id="description" cols="20" rows="2" placeholder="About Your Department" ></textarea>
+                </div>
+                <div id="button">
+                    <input type="submit" name="submit" id="submit">
+                    <input type="reset" name="reset" id="reset">
+                </div>
+            </form>
+        </div>
+
+
+            </section>
+            <br/>
+            
+            <section id="table">
+                <h1>User Details</h1>
+                <table border="2px">
+                    <thead>
+                        <tr>
+                            <th>S.NO</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Department</th>
+                            <th>Description</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ganesh</td>
+                            <td>ganesh123@gmail.com</td>
+                            <td>22</td>
+                            <td>IT</td>
+                            <td>The IT department ensures that the organization's systems, networks, data and applications all connect and function properly. </td>
+
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Karthik</td>
+                            <td>karthik123@gmail.com</td>
+                            <td>22</td>
+                            <td>CSE</td>
+                            <td>Department of CSE is committed to develop innovative skills among the students to enrich the academic activities through improvement learning processes.</td>
+
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Seeni</td>
+                            <td>seeni123@gmail.com</td>
+                            <td>20</td>
+                            <td>EEE</td>
+                            <td>It provides the carrier opportunities in the area of Electrical engineering and in Electronic engineering </td>
+
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Mohan</td>
+                            <td>mohan123@gmail.com</td>
+                            <td>19</td>
+                            <td>ECE</td>
+                            <td>The department, headed by professors and lecturers who are experts in their own disciplines, aims at educating and training students with sound knowledge and awareness in the latest trends in electronics, communication and information technology.</td>
+
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Prajith</td>
+                            <td>prajith123@gmail.com</td>
+                            <td>22</td>
+                            <td>CSE</td>
+                            <td>Department of CSE is committed to develop innovative skills among the students to enrich the academic activities through improvement learning processes.</td>
+
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Suriya</td>
+                            <td>suriya123@gmail.com</td>
+                            <td>21</td>
+                            <td>CIVIL</td>
+                            <td> It is the branch with a lot of diversity right from Surveying, Geo-technology to Structural Engineering, Environmental Sciences to Hydraulics, and Transportation to Hydrology.</td>
+
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Ajet</td>
+                            <td>ajet123@gmail.com</td>
+                            <td>20</td>
+                            <td>MECH</td>
+                            <td>Mechanical engineers design, develop, build, and test. They deal with anything that moves, from components to machines to the human body.</td>
+
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>8</td>
+                            <td>Vaithee</td>
+                            <td>vaithee123@gmail.com</td>
+                            <td>22</td>
+                            <td>ICE</td>
+                            <td> Instrumentation & Controls Engineering (ICE),covers almost similar subjects and the professionals graduated in these courses can look for a similar work profile.</td>
+
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </section>
+
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
