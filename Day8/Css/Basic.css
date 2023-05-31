@@ -49,6 +49,9 @@ p {
 .card2 {
   grid-row: 2/4;
 }
+.card5 {
+  grid-column: 2/4;
+}
 .head {
   text-align: center;
   padding: 10px;
@@ -80,8 +83,7 @@ p {
     justify-content: center;
     margin-top: 1%;
     margin-bottom: 1%;
-    margin-left:10px;
-    margin-right:10px;
-
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
