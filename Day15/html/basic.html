@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weekly task</title>
+    <link rel="stylesheet" href="../css/basic.css" />
+  </head>
+
+  <body>
+    <section class="FORM">
+      <form id="form">
+        <h1>FORM</h1>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          pattern="[A-Za-z]+"
+          title="please enter your name in string"
+          placeholder="Enter Your Name"
+        />
+        <br />
+
+        <label for="mail">Email:</label>
+        <input
+          type="email"
+          name="mail"
+          id="mail"
+          placeholder="Enter Your Email"
+          required
+        />
+        <br />
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name="dob" id="dob" required />
+        <br />
+        <input type="submit" id="submit" value="submit" />
+      </form>
+    </section>
+    <section class="TABLE">
+      <h1>TABLE</h1>
+      <table border="2" id="table">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Date of Birth</th>
+          <th>Action</th>
+          <th>Delete All</th>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <button
+              type="button"
+              id="btn"
+              style="width: 100%; height: 30px"
+              onclick="deleteAll(this);"
+            >
+              DeleteAll
+            </button>
+          </td>
+        </tr>
+      </table>
+    </section>
+  </body>
+  <script type="text/javascript">
+    var selectedRow = null;
+    var row = null;
+    var col = null;
+    document.getElementById("submit").onclick = function (event) {
+      event.preventDefault();
+      if (selectedRow == null) {
+        addData();
+      } else {
+        updateData(selectedRow);
+        selectedRow = null;
+      }
+      document.getElementById("form").reset();
+    };
+    function addData() {
+      var table = document.getElementById("table");
+
+      var row = table.insertRow(1);
+      var name = row.insertCell(0);
+      var email = row.insertCell(1);
+      var dob = row.insertCell(2);
+      var action = row.insertCell(3);
+      var checkbox = row.insertCell(4);
+      action.innerHTML =
+        "<input type='submit' onclick='editData(this)' id='Edit' value='edit'>" +
+        "<input type='submit' id='delete' value='Delete' onclick='deleteData(this)'>";
+      checkbox.innerHTML =
+        "<input type='checkbox' class='checkbox' /*onclick='deleteAll(this)*/' >";
+      name.innerHTML = document.getElementById("name").value;
+      email.innerHTML = document.getElementById("mail").value;
+      dob.innerHTML = document.getElementById("dob").value;
+    }
+
+    function editData(data) {
+      selectedRow = data.parentNode.parentNode;
+      console.log(selectedRow);
+      document.getElementById("name").value = selectedRow.cells[0].innerHTML;
+      document.getElementById("mail").value = selectedRow.cells[1].innerHTML;
+      document.getElementById("dob").value = selectedRow.cells[2].innerHTML;
+      document.getElementById("submit").value = "update";
+    }
+    function updateData(selectedRow) {
+      selectedRow.cells[0].innerHTML = document.getElementById("name").value;
+      selectedRow.cells[1].innerHTML = document.getElementById("mail").value;
+      selectedRow.cells[2].innerHTML = document.getElementById("dob").value;
+      document.getElementById("submit").value = "submit";
+    }
+    // let arr = { name, mail, dob };
+    // function deleteAll(data) {
+    //   row1 = data.parentNode.parentNode;
+    //   arr["name"] = row1.cells[0].innerHTML;
+    //   arr["mail"] = row1.cells[1].innerHTML;
+    //   arr["dob"] = row1.cells[2].innerHTML;
+    // }
+    // console.log(arr);
+    function deleteAll(check) {
+      {
+        col = document.getElementById("table");
+
+
+  
+        // document.getElementById("table").deleteRow(col.rowIndex);
+        // let checkbox = document.getElementsByClassName("checkbox");
+        // console.log("checkbox", checkbox);
+        // let checkedbox = table.filter(function (data) {
+        //   return data.checked;
+        //   console.log("checked", checkedbox);
+        // });
+
+        //document.getElementById("table").deleteRow(checked.rowIndex);
+      }
+    }
+
+    function deleteData(data) {
+      row = data.parentNode.parentNode;
+      document.getElementById("table").deleteRow(row.rowIndex);
+    }
+  </script>
+</html>
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section class="input">
+        <h2>Asynchronous Task Manager</h2>
+        <input type="text" placeholder="Enter The Task" id="task" />
+        <input type="button" value="Add Task" id="button" onclick="addTask()" />
+      </section>
+      <section class="list">
+        <ul id="mylist"></ul>
+      </section>
+    </main>
+
+    <script>
+      function addTask() {
+        let content = document.getElementById("task").value;
+        let promise = new Promise((resolve, reject) => {
+          if (content.length < 10 && content.length > 0) {
+            resolve();
+            document.getElementById("task").value = "";
+          } else {
+            reject();
+          }
+        });
+        promise
+          .then(() => {
+            loader(true);
+            setTimeout(() => {
+              let ul = document.getElementById("mylist");
+              let li = document.createElement("li");
+              li.textContent = content;
+              ul.appendChild(li);
+              loader(false);
+            }, 2000);
+          })
+          .catch(() => {
+            if (content.length == 0) {
+              alert("Your List is Empty! Please Enter Any ");
+            } else {
+              alert("Length is Greater Than 10");
+            }
+          });
+      }
+
+      function loader(loading) {
+        if (loading) {
+          document.getElementById("button").value = "Loading...";
+          document.getElementById("button").disabled = true;
+        } else {
+          document.getElementById("button").value = "Add Task";
+          document.getElementById("button").disabled = false;
+        }
+      }
+    </script>
+  </body>
+</html>

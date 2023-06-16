@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      textarea {
+        margin-bottom: 20px;
+      }
+      #content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      input[type="submit"] {
+        width: 200px;
+        height: 40px;
+      }
+      .sec1 {
+        display: flex;
+        justify-content: space-between;
+      }
+      #pendingTask {
+        width: 500px;
+        border: 2px solid black;
+      }
+      #completedTask {
+        height: 100%;
+        width: 500px;
+      }
+      h1 {
+        text-align: center;
+      }
+      ::placeholder {
+        font-size: 40px;
+      }
+      #btn {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #Edit,
+      #Delete {
+        width: 50%;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <textarea
+        name="textarea"
+        id="todos"
+        cols="30"
+        rows="15"
+        placeholder="Enter Your Todos Here"
+      ></textarea>
+      <input type="submit" id="submit" />
+    </div>
+    <br />
+    <br />
+
+    <section class="sec1">
+      <div>
+        <h1>Pending Task</h1>
+        <div
+          id="pendingTask"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+      </div>
+      <div>
+        <h1>Completed Task</h1>
+        <div
+          id="completedTask"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+      </div>
+    </section>
+    <script>
+      let data = null;
+      document.getElementById("submit").onclick = function (event) {
+        event.preventDefault();
+
+        if (data == null) {
+          addTodos();
+        } else {
+          updateData(data);
+          data = null;
+        }
+      };
+      function loading(load) {
+        if (load) {
+          document.getElementById("submit").value = "submit";
+        } else {
+          document.getElementById("submit").value = "update";
+        }
+      }
+
+      function addTodos() {
+        loading(true);
+        data = document.getElementById("todos").value;
+        let ui = document.getElementById("pendingTask");
+        let Div = document.createElement("p");
+        let Div1 = document.createElement("p");
+        let Div2 = document.createElement("div");
+        // let ui2 = document.getElementById("completedTask");
+        // let Div3 = document.createElement("div");
+        // Div3.setAttribute("ondrop", "drop(event)");
+        // Div3.setAttribute("ondragover", "allowDrop(event)");
+        //ui2.appendChild(Div3);
+        Div.innerHTML = data;
+        Div1.setAttribute("id", "btn");
+
+        let x = document.createElement("INPUT");
+        x.setAttribute("type", "button");
+        x.setAttribute("value", "Edit");
+        x.setAttribute("id", "Edit");
+
+        Div1.appendChild(x);
+        let y = document.createElement("INPUT");
+        y.setAttribute("type", "button");
+        y.setAttribute("value", "Delete");
+        y.setAttribute("id", "Delete");
+        y.setAttribute("onclick", "deleteData(this)");
+        Div1.appendChild(y);
+        Div2.appendChild(Div);
+        Div2.appendChild(Div1);
+        ui.appendChild(Div2);
+        Div2.style.border = "1px solid black";
+        Div2.style.margin = "10px";
+        Div.style.border = "2px solid black";
+        Div.style.margin = "20px";
+        Div.style.overflowWrap = "break-word";
+        Div.style.padding = "20px";
+        Div1.style.padding = "0px 20px";
+        x.setAttribute("onclick", "editData(this)");
+        x.addEventListener("click", () => {
+          let updateData = Div2.children[0];
+          editData(this, updateData);
+        });
+        // Div2.setAttribute("ondrop", "drop(event)");
+        // Div2.setAttribute("ondragover", "allowDrop(event)");
+        Div2.setAttribute("draggable", "true");
+        Div2.setAttribute("ondragstart", "drag(event)");
+        document.getElementById("todos").value = "";
+        data = null;
+      }
+      function editData(row, updateData) {
+        loading(false);
+        data = updateData;
+        document.getElementById("todos").value = data.innerText;
+      }
+
+      function updateData(data) {
+        console.log("update", data);
+        data.innerHTML = document.getElementById("todos").value;
+        document.getElementById("todos").value = "";
+        loading(true);
+      }
+      function deleteData(row1) {
+        let data1 = row1.parentNode.parentNode;
+        document.getElementById("pendingTask").removeChild(data1);
+      }
+
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </body>
+</html>
