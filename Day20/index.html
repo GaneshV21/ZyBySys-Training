@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <h1>Weather Application</h1>
+    <section id="weather-input">
+    </section>
+
+<div id="main-table">    
+    <section id="table">
+    </section>
+
+    <section id="displayNull">
+        <p>No data</p>
+    </section>
+</div>
+    
+
+    <div id="loader" class="loader"></div>
+
+    <div id="popupbg" class="popupbg"></div>
+
+    <div id="popup">
+        <span id="closeIcon">&times;</span>
+        <h2 id="location"></h2>
+        <p id="temperature"></p>
+        <p id="humidity"></p>
+    </div>
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>

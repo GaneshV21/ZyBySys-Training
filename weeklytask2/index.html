@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Document</title>
+    
+    <style>
+        .popupbg {
+            display: none;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(201, 201, 201, 0.483);
+            z-index: 999;
+        }
+        
+        #fmm>input[type="text"]{
+            padding:10px;
+            width:300px;
+        }
+        #fm{
+            display: flex;
+            justify-content: flex-end;
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            background-color: white;
+            font-size: 20px;
+            padding: 20px;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        #closeIcon {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #main {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #content {
+            overflow-y: scroll;
+            margin: 0px 50px;
+            height: 200px;
+            background-color:rgba(201, 201, 201, 0.483) ;
+            color:black;
+            font-size: x-large;
+            
+        }
+
+        #imgg {
+            width: 200px;
+            height: 200px;
+            background-color:black ;
+
+            
+        }
+
+        #display {
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            grid-gap: 10px;
+            margin:0%;
+            /* border: 2px solid black; */
+        }
+        #display>div>p{
+            margin:0%;
+        }
+        
+
+        .sec1{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin:10px;
+            background-color: antiquewhite;
+            padding:5px;
+        }
+        #footer{
+            bottom: 20px;
+            text-align: center;
+            margin:30px;
+            /* display: none; */
+        }
+        
+        /* #search{
+            width:100%;
+        } */
+
+
+       /* @media screen and (max-width:800px) {
+            #display {
+
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                border: 2px solid black; 
+            }
+            #display>img{
+                width:100px;
+            }
+
+        }
+        @media screen and (max-width:600px) {
+            #display {
+
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+
+                border: 2px solid black;
+            }
+            #display>img{
+                width:150px;
+            }
+
+        }
+        @media screen and (max-width:500px) {
+            #display {
+
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+                border: 2px solid black;
+            }
+            #display>img{
+                width:200px;
+            }
+            #imgg {
+            width: 200px;
+            height: 150px;}
+            #content {
+                font-size: 20px;
+            }
+
+            
+
+        }
+        @media screen and (max-width:450px) {
+            
+            #display>img{
+                width:100px;
+            }
+            #imgg {
+            width: 150px;
+            height: 150px;
+            margin:10px;
+        }
+            
+
+            #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .sec1{
+            display: flex;
+            flex-direction: column;
+            margin:10px;
+            background-color: antiquewhite;
+            padding:5px;
+        }
+        #fmm>input[type="text"]{
+            padding:10px;
+            width:auto;
+        }
+        
+
+
+        } */
+    </style>
+</head>
+
+<body>
+    
+<section class="sec1">
+    <form id="myForm">
+        <h1>Details Of All Countries</h1>
+
+        <input type="submit" id="submitData">
+    </form>
+    
+    <div id="fm">
+        <form id="fmm">
+            <input type="text" name="search" id="search" placeholder="search country">
+
+            <select id="sortSelect">
+                <option value="nameAsc">Name (Ascending)</option>
+                <option value="nameDesc">Name (Descending)</option>
+                <option value="populationAsc">Population (Ascending)</option>
+                <option value="populationDesc">Population (Descending)</option>
+              </select>
+        
+        </form>
+        
+    </div>
+</section>
+
+    
+    <div id="display"></div>
+    <div id="popupbg" class="popupbg"></div>
+    <div id="popup">
+        <span id="closeIcon">&times;</span>
+        <div id="main">
+            <img id="imgg"></img>
+            <p id="content"></p>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+
+    <script type="module" src="./app.js">
+
+
+    </script>
+</body>
+
+</html>
