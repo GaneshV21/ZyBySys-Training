@@ -6,207 +6,18 @@
     <title>Document</title>
     <link rel="stylesheet"
      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <style>
-        body{
-            font-family: serif;
-        }
-      
-       #synonyms{
-        display: flex;
-       }
-       #syn-meaning{
-        margin-left:10px;
-       }
-       
-       #foot{
-        display: flex;
-       }
-       #source{
-        margin-right: 10px;
-       }
-       #phonetic{
-        color:#9407f3;
-        font-weight:500;
-        margin-top: -1px;
-        font-size: 20px;
-
-       }
-       #heading{
-        font-size:50px;
-        font-weight: bold;
-        margin:0%;
-        margin-top:20px;
-       }
-       body{
-        padding:0px 300px;
-       }
-       input[type="text"]{
-        width:100%;
-        border:none;
-        background-color: #f5f5f5;
-        padding:15px;
-        border-top-left-radius:10px ;
-        border-bottom-left-radius:10px ;
-        font-weight: bold;
-        
-       }
-       
-
-       #mean,#mean1,#aud{
-            display: none;
-        }
-       #myform>button{
-        border: none;
-        padding:15px;
-        border-top-right-radius:10px ;
-        border-bottom-right-radius:10px ;
-       }
-       #myForm{
-        display: flex;
-        
-       }
-       #syn-meaning{
-        color:#a643e8;
-        font-weight: bold;
-       }
-       #part_0,#part_1{
-        font-weight:bolder;
-       }
-       #heading-audio{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    
-       }
-       #heading-audio>img{
-        margin-top:20px;
-
-       }
-       #part_0,#part_1{
-        display:flex;
-        justify-content: space-evenly;
-        align-items: center;
-       }
-       header{
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-
-       }
-       #header-right{
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        
-
-       }
-       #theme{
-        border:1px solid black;
-        margin:0%;
-        border-radius: 10px;
-        height:20px;
-        background-color: grey;
-
-       }
-       #btn_1{
-        border-radius: 50%;
-        height:100%;
-        border:none;
-        width:20px;
-
-
-       }
-       #btn_2{
-        border-radius: 50%;
-        height:100%;
-        color:grey;
-        background-color: grey;
-        border:none;
-        width:20px;
-
-       }
-       #header-last{
-        display: flex;
-        align-items: center;
-        padding:5px;
-        border-left: 1px solid black;
-
-       }
-       #header-last>img{
-        padding-left: 10px;
-       }
-       #selectopt{
-        border: none;
-    
-       }
-       header>img{
-        border:none;
-       }
-       .hhrr,.hhrrr{
-        height:0.001px;
-        width:85%;
-        border:1px solid rgb(47, 47, 47);
-        color:rgb(81, 81, 81)
-       }
-       #submit{
-        border: none;
-        border-top-right-radius:10px ;
-        border-bottom-right-radius:10px ;
-        color:#a643e8;
-       }
-       #aud{
-        border: none;
-        margin-top:20px;
-        border-radius: 45%;
-
-       }
-
-       #head1,#head2,#source,#headd,#meanExample{
-        color:#8a8989;
-
-       }
-
-       @media screen and (max-width:1100px) {
-
-        body{
-        padding:0px 250px;
-       }
-    }
-       @media screen and (max-width:1000px) {
-
-            body{
-            padding:0px 150px;
-            }
-        
-       }
-       @media screen and (max-width:850px) {
-
-                body{
-                padding:0px 50px;
-                }
-
-        }
-
-        @media screen and (max-width:770px) {
-
-            body{
-            padding:0px;
-            margin: 15px;
-            }
-        
-
-        }
-       
-     </style>
+     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header>
         <img src="./assets/bookk.jpeg" alt="" width="30px">
         <div id="header-right">
-            <span id="dropdown">Serif</span>
+            <!-- <span id="dropdown">Serif</span> -->
             <select name="" id="selectopt">
-                <option value="serif"></option>
-                <option value="Times new Roman"></option>
+                <option value="serif">Serif</option>
+                <option value="cursive">Cursive</option>
+                <option value="system">System</option>
+
             </select>
             <div id="header-last">
                 <div id="theme">
@@ -259,6 +70,8 @@
     </section>
 
     
+    <div id="loader" class="loader"></div>
+    <div id="nodata" class="nodata">No Data</div>
 
 
     <section id="foot">

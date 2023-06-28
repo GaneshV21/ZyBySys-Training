@@ -1,25 +1,23 @@
-// window.addEventListener("click",(event)=>{
-//     event.preventDefault();
-//     let submit=document.getElementById("submit")
-//     if(event.target===submit){
-//     alert("hi");
-//     }
-//     
-    
-// })
 
+let nodata=document.getElementById("nodata")
 function fetchData(){
    
-
+    loader(true)
 
     let data=document.getElementById("Search").value
+    try {
+
     let url=`https://api.dictionaryapi.dev/api/v2/entries/en/${data}`
      fetch(url).then((response)=>response.json()).then((res) =>{
-    console.log(res)
+    loader(false)
+
+    try{
+
+        console.log(res)
         
 
 
-            let heading=document.getElementById("heading")
+        let heading=document.getElementById("heading")
         heading.innerHTML=res[0].word;
         let phonetic=document.getElementById("phonetic")
         phonetic.innerHTML=res[0].phonetics[1].text;
@@ -50,17 +48,13 @@ function fetchData(){
         meaning.appendChild(ulMeaning)
 
         }
-
-
-
-
-        
-
+  
         let syn_meaning=document.getElementById("syn-meaning");
         syn_meaning.innerHTML=""
         let synName=document.getElementById("headd");
         synName.innerHTML="Synonyms"
         syn_meaning.innerHTML=res[0].meanings[0].synonyms;
+        syn_meaning.style.margin="auto"
         
         let part_1=document.getElementById("part_1")
         let parts_of_speech_1=document.getElementById("part_1")
@@ -113,41 +107,35 @@ function fetchData(){
                 audioSrc.src =res[0].phonetics[i].audio
                 audioSrc.play()
             }
-
         })
-
-
-
     let mean=document.getElementById("mean")
     let mean1=document.getElementById("mean1")
     let audio=document.getElementById("aud")
     mean.style.display="block"
     mean1.style.display="block"
-    audio.style.display="block"
-  
-})
+    audio.style.display="block"    
+     }
+     catch{
+        loader(false)
+        nodata.style.display="block"
+     }      
+    })
+    }
+    catch (error) {
+    loader(false)
 
-
+        
+    }
 }
 
 
 let form=document.getElementById("myForm")
 form.addEventListener("submit",(event)=>
 {
+
     event.preventDefault();
-    setTimeout(()=>{
         fetchData();
-    // let mean=document.getElementById("mean")
-    // let mean1=document.getElementById("mean1")
-    // let audio=document.getElementById("aud")
-    // mean.style.display="block"
-    // mean1.style.display="block"
-    // audio.style.display="block"
-    
-    },2000)
-    
-
-
+        loader(true);
 })
 
 
@@ -170,10 +158,6 @@ btn1.addEventListener("click",(event)=>{
     selectopt.style.color="white"
     headerlast.style.borderLeft="1px solid white"
 
-
-
-
-
 })
 
 btn2.addEventListener("click",(event)=>{
@@ -188,4 +172,42 @@ btn2.addEventListener("click",(event)=>{
     headerlast.style.borderLeft="1px solid black"
 
 })
+
+export const loader = (isLoading) => {
+    let loaderData = document.getElementById("loader");
+
+    if (isLoading) {
+        loaderData.style.display = "block";
+    } else {
+        loaderData.style.display = "none";
+    }
+
+}
+
+window.addEventListener("change", (event) => {
+    event.preventDefault();
+
+    let select = document.getElementById("selectopt").value;
+    
+
+    if (event.target === selectopt) {
+
+        switch (select) {
+            case 'serif':
+                document.body.style.fontFamily = "serif";
+                break;
+            case 'cursive':
+                document.body.style.fontFamily = "cursive";
+                break;
+            case 'system':
+                document.body.style.fontFamily = " system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+                break;
+            default:
+                break;
+        }
+    }
+})
+
+
+ 
 
